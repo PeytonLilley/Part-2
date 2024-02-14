@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEditor.U2D.Sprites;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class Knight : MonoBehaviour
 {
@@ -21,8 +22,14 @@ public class Knight : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        health = maxHealth;
+        health = PlayerPrefs.GetFloat("health", maxHealth);
         isDead = false;
+        gameObject.SendMessage("SetHealthBar", health, SendMessageOptions.DontRequireReceiver);
+        if (health <= 0)
+        {
+            isDead = true;
+            animator.SetTrigger("Death");
+        }
     }
 
     private void FixedUpdate()
@@ -66,6 +73,8 @@ public class Knight : MonoBehaviour
     {
         health -= damage;
         health = Mathf.Clamp(health, 0, maxHealth);
+        PlayerPrefs.SetFloat("health", health);
+        gameObject.SendMessage("health", health, SendMessageOptions.DontRequireReceiver);
         if (health <= 0)
         {
             isDead = true;
