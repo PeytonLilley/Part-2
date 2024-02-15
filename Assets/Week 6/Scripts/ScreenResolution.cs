@@ -3,25 +3,28 @@ using UnityEngine.EventSystems;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class GoalTrigger : MonoBehaviour
+public class ScreenResolution : MonoBehaviour
 {
-    public SceneLoader sl;
     // Start is called before the first frame update
     void Start()
     {
-       
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+       
     }
 
-    public void OnTriggerEnter2D(Collider2D collider)
+    public void SetScreen16()
     {
-        sl.LoadNextScene();
+        Screen.SetResolution(1600, 900, false);
+    }
+
+    public void SetScreenHD()
+    {
+        Screen.SetResolution(1920, 1080, false);
     }
 }
