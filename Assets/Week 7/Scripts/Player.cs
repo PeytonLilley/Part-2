@@ -26,10 +26,10 @@ public class Player : MonoBehaviour
 
     private void OnMouseDown()
     {
-        Selected(true);
+        Controller.SetSelectedPlayer(this);
     }
 
-    void Selected(bool isSelected)
+    public void Selected(bool isSelected)
     {
         if (isSelected)
         {
