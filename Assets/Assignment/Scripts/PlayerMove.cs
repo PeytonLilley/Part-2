@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
+    Animator animator;
     Rigidbody2D rb;
     Vector2 newPosition;
     Vector2 movement;
@@ -16,6 +17,7 @@ public class PlayerMove : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -25,6 +27,7 @@ public class PlayerMove : MonoBehaviour
         {
             newPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         }
+        animator.SetFloat("Walking", movement.magnitude);
         if (rb.position == newPosition)
         {
             //    speed = 0;
@@ -39,5 +42,10 @@ public class PlayerMove : MonoBehaviour
             movement = Vector2.zero;
         }
         rb.MovePosition(rb.position + movement.normalized * speed * Time.deltaTime);
+    }
+
+    void OnTriggerEnter2D()
+    {
+        animator.SetTrigger("Interact");
     }
 }
