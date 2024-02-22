@@ -3,6 +3,7 @@ using UnityEngine.EventSystems;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerMove : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class PlayerMove : MonoBehaviour
     Vector2 movement;
     public float speed = 5f;
     public float score = 0;
-
+    public TextMeshProUGUI scoreText;
 
     // Start is called before the first frame update
     void Start()
@@ -54,5 +55,6 @@ public class PlayerMove : MonoBehaviour
     void Score()
     {
         score = score + 1;
+        scoreText.text = ("Score: " + score.ToString());
     }
 }
