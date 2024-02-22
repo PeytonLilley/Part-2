@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5911983693960049138}
   - component: {fileID: 1009085351574825415}
-  - component: {fileID: 7386189673251374364}
   m_Layer: 0
   m_Name: Square Hiding Place
   m_TagString: Untagged
@@ -85,15 +84,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7386189673251374364
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 344194363779481865}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7de5f09b76127b4c8a1293082c4f966, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
