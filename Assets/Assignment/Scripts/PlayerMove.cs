@@ -11,6 +11,7 @@ public class PlayerMove : MonoBehaviour
     Vector2 newPosition;
     Vector2 movement;
     public float speed = 5f;
+    public float score = 0;
 
 
     // Start is called before the first frame update
@@ -47,5 +48,11 @@ public class PlayerMove : MonoBehaviour
     void OnTriggerEnter2D()
     {
         animator.SetTrigger("Interact");
+        gameObject.SendMessage("Score");
+    }
+
+    void Score()
+    {
+        score = score + 1;
     }
 }
